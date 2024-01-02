@@ -1,44 +1,3 @@
-import React from "react";
-import ReactDOM from "react-dom/client"
-
-
-/**
- * Header
- * - Logo
- * - Nav Items
- * Body
- * - Search
- * - Restraurant Container
- *  - Restaurant card
- *      - Image
- *      - Name of Restaurant, Cuisine, Star Rating, Delivery Time
- * Footer
- * - Copyright
- * - Links
- * - Address
- * - Contact
- */
-
-const Header = () =>{
-    return (
-        <div className="header">
-            <div className="logo-container">
-                <img className="logo" src="https://img.freepik.com/free-vector/food-shopping-logo-template-design_460848-10299.jpg" />
-            </div>
-            <div className="nav-items">
-                <ul>
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>Contact Us</li>
-                    <li>cart</li>
-                </ul>
-            </div>
-        </div>
-    )
-}
-const styleCard = {
-    backgroundColor: "#f0f0f0",
-}
 const restaurantsList= [
     {
       "info": {
@@ -932,42 +891,5 @@ const restaurantsList= [
       "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
     }
 ];
-const RestaurantCard = (props) =>{
-    const {name, cuisines, avgRating, sla,cloudinaryImageId} = props.resObj;
-    return (
-        <div className="res-card" style={styleCard}>
-            <div className="res-img-container">
-                <img className="res-logo" alt="Res Image" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+cloudinaryImageId} />
-            </div>
-            <h3> {name}</h3>
-            <h3> {cuisines.join(', ')}</h3>
-            <h3> {avgRating} Stars</h3>
-            <h3> {sla.slaString}</h3>
-        </div>
-    )
-    
-}
-// Not using keys (Not acceptable) <<<< index as keys <<<< Unique id as key (Best Practice)
-const Body = () =>{
-    return (
-        <div className="body">
-            <div className="search">Search</div>
-            <div className="res-container">
-                {
-                    restaurantsList.map((res)=> <RestaurantCard key={res.info.id} resObj={res.info}/> )
-                }
-            </div>
-        </div>
-    )
-}
-const AppLayout = () =>{
-    return (
-        <div className="app">
-            <Header />
-            <Body />
-        </div>
-    )
-}
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout />);
+export default restaurantsList;
