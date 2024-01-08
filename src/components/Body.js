@@ -1,6 +1,7 @@
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 // Not using keys (Not acceptable) <<<< index as keys <<<< Unique id as key (Best Practice)
 const Body = () =>{
@@ -23,8 +24,8 @@ const Body = () =>{
         const data= await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=16.5061743&lng=80.6480153&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
         const apiData = await data.json();
         console.log(apiData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        setListOfRestaurants(apiData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        setMasterRestaurants(apiData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setListOfRestaurants(apiData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setMasterRestaurants(apiData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     }
 
     // Conditional Rendering
@@ -62,7 +63,7 @@ const Body = () =>{
             </div>
             <div className="res-container">
                 {
-                    listOfRestaurants.map((res)=> <RestaurantCard key={res.info.id} resObj={res.info}/> )
+                    listOfRestaurants.map((res)=> <Link key={res.info.id} to={'restaurant/'+res.info.id}><RestaurantCard  resObj={res.info}/></Link> )
                 }
             </div>
         </div>

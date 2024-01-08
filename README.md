@@ -55,7 +55,15 @@
 # React Hooks
  (Normal JS Utility Funcitons)
 - useState() - Super powerful state variable - It keeps the data layer and ui layer in sync. setVariable is helpful in triggering DOM rendering when we update the state variable.
-- useEffect()
+- useEffect() - This gets invoked after the DOM rendering is completed. 
+    /*
+    *    useEffect(() => {
+    *        console.log("use Effect callled)
+    *    },[btnName])
+    */
+    - If no dependency array => useEffect is called on every render.
+    - If dependency array  is empty => useEffect is called on initial render (Just once).
+    - if dependecy is [btnName] => useEffect  is called everytime when btnName is updated.
 
  Whenever a state variable changes, React re-renders the component.
  # React
@@ -64,3 +72,8 @@
  - React is fast because of virtual DOM. Vistual DOM uses Diff Algorithm to compare any changes in the DOM before rendering/updating the UI effectively and fastly.
  # React Algorithm (Fiber Architecture)
  - https://github.com/acdlite/react-fiber-architecture
+
+
+ # Tehre are 2 types of routing
+ - Client Side Routing
+ - Server side Routing.

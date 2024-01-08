@@ -44,6 +44,8 @@
 }
 .filter{
     margin: 10px 0px;
+    display:flex;
+    gap:10px
 }
 .shimmer-container {
     display: flex;
@@ -58,4 +60,12 @@
 .login-btn {
     padding: 0px 10px;
     cursor: pointer;
+}
+.search{
+    display:flex;
+    gap:10px;
+}
+.res-container a {
+    text-decoration: none;
+    color: black;
 }
