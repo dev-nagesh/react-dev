@@ -24,8 +24,8 @@ const Body = () =>{
         const data= await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=16.5061743&lng=80.6480153&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
         const apiData = await data.json();
         console.log(apiData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        setListOfRestaurants(apiData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        setMasterRestaurants(apiData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setListOfRestaurants(apiData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setMasterRestaurants(apiData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     }
 
     // Conditional Rendering

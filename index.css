@@ -69,3 +69,10 @@
     text-decoration: none;
     color: black;
 }
+.user-card{
+    display:flex;
+    flex-direction: column;
+    border: 1px solid black;
+    margin-top: 10px;
+    padding-left: 10px;
+}

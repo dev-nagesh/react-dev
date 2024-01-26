@@ -1,6 +1,8 @@
+import User from "./User";
+
 const Contact = () => {
     return <div>
-        Hello, This is Contact Page.
+        Hello, This is Contact Page
     </div>
 }
 
