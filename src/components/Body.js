@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 // Not using keys (Not acceptable) <<<< index as keys <<<< Unique id as key (Best Practice)
 const Body = () =>{
@@ -13,6 +14,7 @@ const Body = () =>{
     const [listOfRestaurants, setListOfRestaurants]=useState([]);
     const [masterRestaurants, setMasterRestaurants]=useState(listOfRestaurants);
     const [searchText, setSearchText] = useState("");
+    const onlineStatus = useOnlineStatus();
 
     // Whenever a react variable updates, the react triggers a reconciliation cycle (Re-Renders the component).
     console.log("Body Render/Re-Render");
@@ -32,7 +34,11 @@ const Body = () =>{
     // if(listOfRestaurants.length === 0){
     //     return <Shimmer />
     // }
-
+    if(!onlineStatus){
+        return (
+            <h1>Oops! Looks like you are offline</h1>
+        );
+    }
     return listOfRestaurants.length === 0 ? <Shimmer /> : (
         <div className="body">
             {/* <div className="search">Search</div>  */}

@@ -121,4 +121,21 @@
         Render API Data>
        <HTML new API data>
        ComponentDidUpdate
+
+# Custom Hooks
+    - Custom hooks are the hooks that can be created by developer. 
+    - These are a normal javascript functions for specific purpose
+    - Kind od helper functions
+    - It has its own life cycle and it hase its own useState, useEffect and it has its own react way of handling the things.
+
+# Lazy Loading
+- Chunking
+- Code Spitting
+- Dynamic Bundling
+- Lazy Loading
+- On demand loading
+- Dynamic import
+
+
+
    
