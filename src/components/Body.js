@@ -42,12 +42,12 @@ const Body = () =>{
     return listOfRestaurants.length === 0 ? <Shimmer /> : (
         <div className="body">
             {/* <div className="search">Search</div>  */}
-            <div className="filter">
-                <div className="search">
-                    <input type="text" value={searchText}  onChange={(e)=> {
+            <div className="flex gap-1 my-3">
+                <div className="flex mx-4 gap-2">
+                    <input className="px-2 rounded-md border-green-500" type="text" value={searchText}  onChange={(e)=> {
                         setSearchText(e.target.value)
-                    }}/>
-                    <button onClick={()=>{
+                    }} />
+                    <button className="px-2 bg-green-300 rounded-md" onClick={()=>{
                         console.log(listOfRestaurants, searchText);
                         const filteredRestaurants = masterRestaurants.filter(
                             (res)=> {
@@ -59,7 +59,7 @@ const Body = () =>{
                         setListOfRestaurants(filteredRestaurants);
                     }}> Search </button>
                 </div>
-                <button className="filter-btn" onClick={()=>{
+                <button className="p-2 bg-green-300 rounded-md" onClick={()=>{
                     const filteredRestaurants=listOfRestaurants.filter((res) => res.info.avgRating > 4.2);
                     setListOfRestaurants(filteredRestaurants);
                 }}>
@@ -67,7 +67,7 @@ const Body = () =>{
                 </button>
 
             </div>
-            <div className="res-container">
+            <div className="flex mx-4 gap-2 flex-wrap">
                 {
                     listOfRestaurants.map((res)=> <Link key={res.info.id} to={'restaurant/'+res.info.id}><RestaurantCard  resObj={res.info}/></Link> )
                 }

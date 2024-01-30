@@ -10,33 +10,31 @@ const Header = () =>{
     const onlineStatus = useOnlineStatus();
 
     return (
-        <div className="header">
-            <div className="logo-container">
-                <img className="logo" src={LOGO_URL} />
+        <div className="m-4 flex justify-between bg-pink-200 sm:bg-yellow-100 lg:bg-green-200 shadow-md rounded-full">
+            <div className="w-20">
+                <img className="rounded-full" src={LOGO_URL} />
             </div>
-            <div className="nav-items">
-                <ul>
-                    <li>
-                        Online Status:<b>{onlineStatus ? 'Online': 'Offline'}</b>
-                    </li>
-                    <li>
-                        <Link to="/">Home</Link>
-                    </li>
-                    <li>
-                        <Link to="/about">About Us</Link>
-                    </li>
-                    <li>
-                        <Link to="/contact">Contact Us</Link>
-                    </li>
-                    <li>
-                        <Link to="/grocery">Grocery</Link>
-                    </li>
-                    <li>cart</li>
-                    <button className="login-btn" onClick={() => {
-                        btnName === "Login" ? setBtnName("Logout") : setBtnName("Login");
-                    }}>{btnName}</button>
-                </ul>
-            </div>
+            <ul className="flex items-center gap-2 m-2 px-4">
+                <li>
+                    Online Status:<b>{onlineStatus ? 'Online': 'Offline'}</b>
+                </li>
+                <li>
+                    <Link to="/">Home</Link>
+                </li>
+                <li>
+                    <Link to="/about">About Us</Link>
+                </li>
+                <li>
+                    <Link to="/contact">Contact Us</Link>
+                </li>
+                <li>
+                    <Link to="/grocery">Grocery</Link>
+                </li>
+                <li>cart</li>
+                <button className="bg-gray-400 p-2 rounded-md text-white" onClick={() => {
+                    btnName === "Login" ? setBtnName("Logout") : setBtnName("Login");
+                }}>{btnName}</button>
+            </ul>
         </div>
     )
 }
