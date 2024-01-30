@@ -136,6 +136,36 @@
 - On demand loading
 - Dynamic import
 
+# Higher Order Component.
+- Higher order component is a component that takes component as an input and returns a ne enhanced or modified version of component.
+- Higher order components are pure component.
+
+# Data Layer
+- React has two layers
+    - UI Layer
+    - Data Layer
+- UI Layer is static and it uses the Data from Data Layer.
+- UI Layer is powered by Data Layer.
+
+# Controlled/Uncontrolled Components
+- If the components depends on the props received from parent then that is a controlled component.
+- If the component is independant and does not dependent on props then it is uncontrolled component.
+
+# Lifting the state up
+- State lifting is moving the state of children to the parent and controlling the state of children from the parent.
+
+# Props Drilling
+- Props drilling is a way of passing props from parent to the leaf child through the intermediate components.
+- The pain with this props drilling is. In a big project it is not ideal to pass the props from top to bottom through out all the parent and children components.
+
+# React Context
+- React context is provided by react to create and share the props or values globally through out the project without the need of props drilling.
+    # Context Provider
+    - Context provider is the super power provided by React to update the context of full or partial context of the application.
+    Ex: <userContext.Provider value = {{loggedInUser:'Nagesh'}} >
+            <Component />
+        </userContext.Provider>
+
 
 
    
