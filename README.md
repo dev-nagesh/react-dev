@@ -226,6 +226,48 @@
     -         RTK - We have to mutate the state or return the new state
 
 
+# Types of testing (Developer)
+- Unit Testing 
+    - Testing a componet or piece of code (Unit) in isolation mode is called a Unit testing. Suppose we workd on Header component then we can simple test only that particulat component.
+- Integration Testing
+    - Testing the inergration of component. Testing a specific flow which involves multiple components. Suppose when we search with keyword, then the search results in doing action in search component and Restaurant cards, Restaturant Menu component.
+- End to End Testing
+    - It is testing all the flows of application from the point user lands on the application to user leaves the application. Means users lands on the application, Clicking login button, browsing the restaurants, adding items to the cart etc.,.
 
+    # React Testing LIbrary
+        - URL: https://testing-library.com/docs/react-testing-library/intro
+        - Most of the testing libraries base is testing based on DOM of the application.
+        - This library has been built on top of the DOM testing library
+        - This is the most commonly used testing library for the React applications.
+        - React Testing library uses JEST library behind the scenes which is a javascript testing library.
+    # Setting up testing in our app
+        - Install React Teting Library
+        - Install Jest Library
+            - https://jestjs.io/docs/getting-started
+        - Install Babel dependencies
+        - create a babel configuration file and add configurations.
+        - Configure parcel config file to disable default babel transpilation.
+        - Jest Configuration - npx jest --init 
+            *jsdom is like a browser but not the browser. It is used as running platform for jest to run the test cases.
+        - Install JS DOM Librbary if we are usign the Jest version greater than 28.
+        - Install @babel/preset-react - To make JSX work in Test Cases
+        - Include @babel/preset-react inside babel config
+        - npm i -D  @testing-library/jest-dom - This is used to access the DOM in test cases
+        
+    # Test Case Creation
+        - Create a folder with the name __test__
+            - Adding two underscores at the starting and ending of the folder name (__****__) called as dunder. These are reserved character sequences to track testing files
+        - create files with either of the fileextensions.
+            - Header.test.js
+            - Header.test.ts
+            - Header.spec.js
+            - Header.spec.ts
+    - Querying in React gives us the result which is JSX/React Object.
+        Query Examples
+        - screen.getByText("Submit")
+        - screen.getAllByRole("textbox")
+    - describe is used to group the logically similar test cass.
+    - it and test are alias to each other and they both solve the same purpose.
+    - Add *watch-test* with the value "jest --watch" inside package.json to avaoid running *npm run test* on every change. Testing library used HMR(Hot Module Replacement) from parcel to achieve this test watch
 
-   
+   - *act* is a function which is used while executing asynchronous code. It comes from "react-dom/test-utils" package. This function returns Promise and takes async function as a parameter. We can use await to get the resolved Promise. Also, We need to update the callback function of it funciton definition should be Async.

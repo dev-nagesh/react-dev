@@ -19,7 +19,7 @@ const Body = () =>{
 
     const PromotedRestaurantCard = WithPromotedLabel(RestaurantCard);
     // Whenever a react variable updates, the react triggers a reconciliation cycle (Re-Renders the component).
-    console.log("Body Render/Re-Render");
+    //console.log("Body Render/Re-Render");
 
     const {loggedInUser, setUserName} = useContext(userContext);
 
@@ -33,7 +33,7 @@ const Body = () =>{
         //     restro.info.promoted = true;
         //     return restro;
         // });
-        console.log(apiData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        //console.log(apiData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setListOfRestaurants(apiData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setMasterRestaurants(apiData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     }
@@ -52,18 +52,18 @@ const Body = () =>{
             {/* <div className="search">Search</div>  */}
             <div className="flex gap-1 my-6">
                 <div className="flex mx-4 gap-2">
-                    <input className="border border-black px-2 rounded-md border-green-500" type="text" value={searchText}  onChange={(e)=> {
+                    <input data-testid="serachInput" className="border border-black px-2 rounded-md border-green-500" type="text" value={searchText}  onChange={(e)=> {
                         setSearchText(e.target.value)
                     }} />
                     <button className="px-2 bg-green-300 rounded-md" onClick={()=>{
-                        console.log(listOfRestaurants, searchText);
+                        //console.log(listOfRestaurants, searchText);
                         const filteredRestaurants = masterRestaurants.filter(
                             (res)=> {
                                 const name = res.info.name.toLowerCase();
                                 const searchval= searchText.toLowerCase();
                                 return name.includes(searchval); 
                             });
-                        console.log(filteredRestaurants, searchText);
+                        //console.log(filteredRestaurants, searchText);
                         setListOfRestaurants(filteredRestaurants);
                     }}> Search </button>
                 </div>

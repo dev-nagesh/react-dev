@@ -11,10 +11,10 @@ const RestaurantMenu = () => {
     if(!!!resInfo){
         return <Shimmer />
     }
-    const {name,cuisines, costForTwoMessage} = resInfo?.cards[0]?.card?.card?.info;
-    const {title:category}= resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
-    const {itemCards} = !resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.categories ? resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card: resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.categories[0];
-     console.log(itemCards);
+    const {name,cuisines, costForTwoMessage} = resInfo?.cards[2]?.card?.card?.info;
+    const {title:category}= resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
+    const {itemCards} = !resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.categories ? resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card: resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.categories[0];
+     //console.log(itemCards);
      const groupedCard = resInfo?.cards.find((res)=>{
         if(Object.keys(res).includes('groupedCard')){
             return res;
@@ -26,13 +26,13 @@ const RestaurantMenu = () => {
         }
         return itemsList;
      },[])
-     console.log("categories:",categories);
+     //console.log("categories:",categories);
     //  .reduce((items,restro)=>{
     //     const itemsList = restro?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((r)=> r?.card?.card?.['@type']=== 'type.googleapis.com/swiggy.presentation.food.v2.ItemCategory');
     //     items.push(itemsList);
     //     return items;
     //  },[]);
-     console.log("groupedCard:", groupedCard);
+     //console.log("groupedCard:", groupedCard);
     return (
         <div className="text-center">
             <h1 className="font-bold my-4 text-2xl">{name || "Res Name"}</h1>

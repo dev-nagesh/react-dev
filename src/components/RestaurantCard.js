@@ -6,10 +6,12 @@ const styleCard = {
     backgroundColor: "#f0f0f0",
 }
 const RestaurantCard = (props) =>{
+    //console.log("Restaurant Card:",props);
     const {loggedInUser} = useContext(userContext);
+    //console.log("Input Obj",props.resObj);
     const {name, cuisines, avgRating, sla,cloudinaryImageId} = props.resObj;
     return (
-        <div className="flex flex-col flex-wrap w-52 justify-center p-4 rounded-md h-auto gap-3" style={styleCard}>
+        <div data-testid="resCard" className="flex flex-col flex-wrap w-52 justify-center p-4 rounded-md h-auto gap-3" style={styleCard}>
             <div className="flex justify-center">
                 <img className="w-44 h-40 rounded-md" alt="Res Image" src={CDN_URL+cloudinaryImageId} />
             </div>
